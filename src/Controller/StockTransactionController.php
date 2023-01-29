@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
-class StopTransactionController extends AbstractController
+class StockTransactionController extends AbstractController
 {
     //buy
     #[Route('/buy', name: 'buy-stock')]
@@ -17,6 +17,10 @@ class StopTransactionController extends AbstractController
         //$notification->getOrder()->getBuyer()->getEmail()
         
         $order = new class {
+            public function getId(): int
+            {
+                return 1;
+            }
             public function getBuyer():object
             {
                 return new class {
